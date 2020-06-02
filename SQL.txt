@@ -1,0 +1,34 @@
+CREATE DATABASE test;
+
+USE test;
+
+CREATE TABLE `city_province` (
+`id`  int NOT NULL AUTO_INCREMENT ,
+`city_id`  int NOT NULL ,
+`province_id`  int NOT NULL ,
+PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `city` (
+`id`  int NOT NULL AUTO_INCREMENT ,
+`name`  varchar(255) NOT NULL ,
+`postal_code`  varchar(255) NOT NULL ,
+PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `province` (
+`id`  int NOT NULL AUTO_INCREMENT ,
+`name`  varchar(255) NOT NULL ,
+`abbreviation`  varchar(255) NOT NULL ,
+PRIMARY KEY (`id`)
+);
+
+ ADD CONSTRAINT `city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `city_province` ADD CONSTRAINT `pro` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `city_province`
+ADD INDEX (`city_id`) ,
+ADD INDEX (`province_id`) ;
+ALTER TABLE `province`
+ADD INDEX (`id`) ;
+

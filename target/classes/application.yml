@@ -1,0 +1,10 @@
+mybatis:
+  type-aliases-package: com.moxuan.Proj.pojo # 配置实体类
+spring:
+  datasource: # 配置数据源
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&autoReconnect=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8080
